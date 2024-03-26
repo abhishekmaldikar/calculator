@@ -8,9 +8,13 @@ function App() {
 
   function handleSubmit() {
       try {
+        if(data === ""){
+          setDisplayData("Error");
+          return
+        }
         const result = eval(data);
         if (isNaN(result)) {
-          setDisplayData("Error");
+          setDisplayData("NaN");
         } else if (!isFinite(result)) {
           setDisplayData("Infinity");
         } else {
